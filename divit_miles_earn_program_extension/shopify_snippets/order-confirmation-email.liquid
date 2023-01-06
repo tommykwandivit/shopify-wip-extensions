@@ -1,0 +1,28 @@
+// add this before customer information
+
+<table class="row section">
+  <tr>
+    <td class="section__cell">
+      <center>
+        <table class="container">
+          <tr>
+            <td>
+              You have earned <strong>{{ subtotal_price | divided_by:400 | floor }}</strong> divit miles
+              <img style="width:100px;" src="https://youair.divit.dev/assets/images/payments/divit.png" />
+            </td>
+            <td class="actions__cell">
+              <table class="button action-cell">
+                <tr>
+                  <td class="button__cell">
+                    <a href="https://dev-consumer.divit.dev" class="button__text">
+                      Click here to claim
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+        </table>
+      </center>
+    </td>
+  </tr>
+</table>

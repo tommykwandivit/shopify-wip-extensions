@@ -1,0 +1,33 @@
+<script>
+  var shop = Shopify.shop;
+  var token = Shopify.checkout.token;
+
+  fetch(`https://dev-miles.divit.dev/miles/shopify/tokens/${token}`,
+    {
+      method: 'GET',
+      cache: 'no-cache',
+      headers: {
+        'x-shopify-shop-domain': shop,
+      },
+    }
+  )
+  .then(resp => resp.json())
+  .then((data) => {
+    if (data.data.length === 0) return
+    var miles = data.data[0].claimedAmount.amount / 100
+    var claimToken = data.data[0].token
+    Shopify.Checkout.OrderStatus.addContentBox(`
+      <div>
+        <div style="margin-bottom:10px;">
+          <h2>
+            You have earned <strong>${miles}</strong> divit miles.
+            <img style="width:60px;" src="https://youair.divit.dev/assets/images/payments/divit.png" />
+          </h2>
+        </div>
+        <div>
+          <a href="https://dev-consumer.divit.dev/miles/claim/${claimToken}" class="btn">Click here to claim</a>
+        </div>
+      </div>
+    `)
+  })
+</script>

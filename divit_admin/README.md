@@ -1,0 +1,2 @@
+- shopify node connect (connect store with this app)
+- shopify node serve (serve project with ngork, update store setting)

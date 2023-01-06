@@ -1,0 +1,30 @@
+<script>
+  var divit_product = {{ product | json }};
+
+  function divit_updateMiles({ quantity }) {
+    var miles = Math.floor(divit_product.price * quantity / 400);
+    jQuery('#divit_miles').text(miles);
+  }
+
+  jQuery(function() {
+    divit_updateMiles({ 
+      quantity: 1,
+    })
+
+    jQuery('#Quantity').on('blur', function() { 
+      var quantity = $(this).val()
+      divit_updateMiles({ quantity })
+    })
+
+    jQuery('#Quantity').on('change', function() { 
+      var quantity = $(this).val()
+      divit_updateMiles({ quantity })
+    })
+  })()
+</script>
+
+<p>
+  Buy now and earn <strong id="divit_miles">-</strong> divit miles.
+  <img style="width:60px;" src="https://youair.divit.dev/assets/images/payments/divit.png" />
+</p>
+

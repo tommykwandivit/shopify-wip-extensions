@@ -1,0 +1,6 @@
+SHOPIFY_API_KEY=2a3ad825c680aaef5aea4dc1ccd85afc
+SHOPIFY_API_SECRET=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
+SHOP=divit-miles-earn-dev-store.myshopify.com
+SCOPES=write_products,write_customers,write_draft_orders
+EXTENSION_TITLE=divit miles earn program extension
+EXTENSION_UUID=dev-97421e39-4366-41fe-abc9-d2cd61e2a08d
